@@ -1,0 +1,72 @@
+{
+  "name": "redux-modular-auth",
+  "version": "1.0.0",
+  "description": "Manage auth state with ease.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "start": "babel-node src/index.js",
+    "build": "NODE_ENV=production webpack -p",
+    "build:watch": "babel src --watch --out-dir lib --ignore __tests__",
+    "precommit": "lint-staged --verbose",
+    "format": "prettier --single-quote --trailing-comma all '{src,__{tests,mocks}__}/**/*.{js,jsx}' --write",
+    "test": "jest --onlyChanged --watch",
+    "test:all": "jest",
+    "lint-staged": "lint-staged --verbose",
+    "flow": "flow",
+    "prepublish": "yarn run clean && yarn run test:all && yarn run build",
+    "clean": "rimraf lib",
+    "dev": "nodemon src/index.js --exec babel-node"
+  },
+  "author": "bob61016@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.0",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-latest": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-prettier": "^2.1.1",
+    "eslint-import-resolver-babel-module": "^3.0.0",
+    "eslint-loader": "^1.8.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
+    "flow-bin": "^0.47.0",
+    "husky": "^0.13.4",
+    "jest": "^20.0.4",
+    "lint-staged": "^3.6.0",
+    "nodemon": "^1.11.0",
+    "prettier": "^1.4.2",
+    "redux": "^3.7.1",
+    "remove-flow-types-loader": "^1.0.0",
+    "reselect": "^3.0.1",
+    "rimraf": "^2.6.1",
+    "webpack": "^3.0.0"
+  },
+  "dependencies": {
+    "ramda": "^0.24.1",
+    "redux-actions": "^2.0.3"
+  },
+  "peerDependencies": {
+    "ramda": "^0.24.1",
+    "redux-actions": "^2.0.3"
+  },
+  "jest": {
+    "verbose": true,
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/env-setup.js",
+      "<rootDir>/node_modules/"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/__tests__/env-setup.js"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "yarn run format",
+      "git add"
+    ]
+  }
+}
