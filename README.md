@@ -23,7 +23,7 @@ The store should know how to handle actions. To enable this, we need to create t
 import { createStore, combineReducers } from 'redux';
 import { createSelector } from 'reselect';
 import R from 'ramda';
-import { createReducer } from 'redux-modular-auth';
+import { createReducer, login, logout, isLoggedIn } from 'redux-modular-auth';
 
 const rootReducer = combineReducers({
   auth: createReducer(),
@@ -60,12 +60,9 @@ expect(getState()).toEqual({
 Check if user is logged in
 
 ```js
-const mapStateToProps = createSelector(
-  R.path(['auth', 'credentials']),
-  R.applySpec({
-    isLoggedIn: R.propSatisfies(R.compose(R.not, R.isNil), 'sessionToken'),
-  }),
-);
+const mapStateToProps = createStructuredSelector({
+  isLoggedIn,
+});
 expect(mapStateToProps(getState())).toEqual({
   isLoggedIn: true,
 });
