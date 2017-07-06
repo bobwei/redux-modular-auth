@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
-import { createReducer, login, logout, isLoggedIn } from '../src/index';
+import { createReducer, login, logout, isAuthenticated } from '../src/index';
 
 it('can createReducer and update state with actions', () => {
   const rootReducer = combineReducers({
@@ -30,10 +30,10 @@ it('can createReducer and update state with actions', () => {
   });
 
   const mapStateToProps = createStructuredSelector({
-    isLoggedIn,
+    isAuthenticated,
   });
   expect(mapStateToProps(getState())).toEqual({
-    isLoggedIn: true,
+    isAuthenticated: true,
   });
 
   dispatch(logout());
@@ -43,6 +43,6 @@ it('can createReducer and update state with actions', () => {
     },
   });
   expect(mapStateToProps(getState())).toEqual({
-    isLoggedIn: false,
+    isAuthenticated: false,
   });
 });
