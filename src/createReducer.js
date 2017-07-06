@@ -13,8 +13,7 @@ const createReducer = () => {
     {
       [login]: (state, { payload }) =>
         R.assocPath(['credentials'], payload, state),
-      [logout]: state =>
-        R.assocPath(['credentials'], {}, state),
+      [logout]: state => R.assocPath(['credentials'], {}, state),
     },
     initialState,
   );
