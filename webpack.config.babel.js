@@ -13,6 +13,7 @@ const config = {
   externals: {
     ramda: 'ramda',
     'redux-actions': 'redux-actions',
+    reselect: 'reselect',
   },
   module: {
     loaders: [

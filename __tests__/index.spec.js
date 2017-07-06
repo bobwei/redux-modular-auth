@@ -1,8 +1,7 @@
 import { createStore, combineReducers } from 'redux';
-import { createSelector } from 'reselect';
-import R from 'ramda';
+import { createStructuredSelector } from 'reselect';
 
-import { createReducer, login, logout } from '../src/index';
+import { createReducer, login, logout, isLoggedIn } from '../src/index';
 
 it('can createReducer and update state with actions', () => {
   const rootReducer = combineReducers({
@@ -30,12 +29,9 @@ it('can createReducer and update state with actions', () => {
     },
   });
 
-  const mapStateToProps = createSelector(
-    R.path(['auth', 'credentials']),
-    R.applySpec({
-      isLoggedIn: R.propSatisfies(R.compose(R.not, R.isNil), 'sessionToken'),
-    }),
-  );
+  const mapStateToProps = createStructuredSelector({
+    isLoggedIn,
+  });
   expect(mapStateToProps(getState())).toEqual({
     isLoggedIn: true,
   });

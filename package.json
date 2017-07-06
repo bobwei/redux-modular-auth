@@ -1,6 +1,6 @@
 {
   "name": "redux-modular-auth",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Manage auth state with ease.",
   "main": "./lib/index.js",
   "scripts": {
@@ -43,17 +43,18 @@
     "prettier": "^1.4.2",
     "redux": "^3.7.1",
     "remove-flow-types-loader": "^1.0.0",
-    "reselect": "^3.0.1",
     "rimraf": "^2.6.1",
     "webpack": "^3.0.0"
   },
   "dependencies": {
     "ramda": "^0.24.1",
-    "redux-actions": "^2.0.3"
+    "redux-actions": "^2.0.3",
+    "reselect": "^3.0.1"
   },
   "peerDependencies": {
     "ramda": "^0.24.1",
-    "redux-actions": "^2.0.3"
+    "redux-actions": "^2.0.3",
+    "reselect": "^3.0.1"
   },
   "jest": {
     "verbose": true,
