@@ -14,6 +14,9 @@ const config = {
     ramda: 'ramda',
     'redux-actions': 'redux-actions',
     reselect: 'reselect',
+    'react-redux': 'react-redux',
+    recompose: 'recompose',
+    react: 'react',
   },
   module: {
     loaders: [
