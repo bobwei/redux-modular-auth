@@ -41,7 +41,7 @@ it('can render correct component depending on auth state', () => {
 
   /*
     Not yet authenticated, so it shouldn't contains authenticated required components.
-    Instead, there should be LoginComponent
+    Instead, there should be UnauthenticatedComponent
   */
   expect(wrapper.contains(<div id="authenticated-required" />)).toBe(false);
   expect(wrapper.contains(<div id="unauthenticated-component" />)).toBe(true);
