@@ -1,3 +1,6 @@
+### Selectors
+
+```js
 import { createStore, combineReducers } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import R from 'ramda';
@@ -44,3 +47,5 @@ describe('selectors', () => {
     });
   });
 });
+
+```
