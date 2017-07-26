@@ -6,7 +6,7 @@ Manage auth state with ease.
 - [Usage Example](#usage-example)
   - [Authentication](#authentication)
   - [requireAuth](#requireauth)
-  - [Selectors](#./docs/selectors.md)
+  - [Selectors](./docs/selectors.md)
 
 
 ## Installation
