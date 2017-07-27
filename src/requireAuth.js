@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import R from 'ramda';
 import compose from 'recompose/compose';
-import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 import mapProps from 'recompose/mapProps';
 import branch from 'recompose/branch';
 import renderComponent from 'recompose/renderComponent';
@@ -30,7 +29,6 @@ const requireAuth = (
         isAuthenticated,
       }),
     ),
-    onlyUpdateForKeys(['isAuthenticated']),
     lifecycle({
       componentWillReceiveProps(nextProps) {
         R.ifElse(
